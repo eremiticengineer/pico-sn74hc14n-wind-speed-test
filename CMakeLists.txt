@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 pico_sdk_init()
 
-message(STATUS ">>>>>>>>>>>>>>>>>>>>> PICO_PLATFORM=${PICO_PLATFORM}")
+message(STATUS "PICO_PLATFORM=${PICO_PLATFORM}")
 
 set(FREERTOS_KERNEL_PATH
     ${CMAKE_CURRENT_LIST_DIR}/lib/FreeRTOS-Kernel
@@ -25,10 +25,12 @@ include(
 
 add_executable(${PROJECT}
   src/sn74hc14n-test.cpp
+  src/WindMonitor/WindMonitor.hpp
 )
 
 target_include_directories(${PROJECT} PUBLIC
   include/
+  src/WindMonitor
 )
 
 target_link_libraries(${PROJECT}
